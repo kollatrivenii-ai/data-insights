@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Data Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Data Insights</h1>
+  <p class="lead">Upload a CSV file and get a quick read on it: structure, missing values, statistics, distributions and relationships. Everything runs in your browser; the file never leaves your device.</p>
+
+  <section class="panel">
+    <div class="drop" id="drop">
+      <p>Drop a CSV file here, or choose one.</p>
+      <div class="row">
+        <button id="pick">Choose CSV file</button>
+        <button id="sample" class="ghost">Try sample sales data</button>
+      </div>
+      <input type="file" id="file" accept=".csv,text/csv" class="hidden">
+      <div class="err" id="err" role="alert"></div>
+    </div>
+  </section>
+
+  <div id="report" class="hidden">
+    <section class="panel">
+      <h2 id="fname">Overview</h2>
+      <div class="stats" id="overview"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Key findings</h2>
+      <ul class="findings" id="findings"></ul>
+    </section>
+
+    <section class="panel">
+      <h2>Column summary</h2>
+      <div class="scroll"><table id="coltable"></table></div>
+    </section>
+
+    <div class="grid2">
+      <section class="panel">
+        <h2>Distribution</h2>
+        <div class="controls"><label for="distCol" class="muted">Column</label><select id="distCol"></select></div>
+        <div class="chart-box"><canvas id="distChart"></canvas></div>
+      </section>
+      <section class="panel">
+        <h2>Relationship</h2>
+        <div class="controls">
+          <label for="xCol" class="muted">X</label><select id="xCol"></select>
+          <label for="yCol" class="muted">Y</label><select id="yCol"></select>
+        </div>
+        <div class="chart-box"><canvas id="scatterChart"></canvas></div>
+        <p class="muted" id="scatterNote" style="margin:8px 0 0"></p>
+      </section>
+    </div>
+
+    <section class="panel">
+      <h2>Correlation between numeric columns</h2>
+      <div class="scroll"><table class="heat" id="heat"></table></div>
+      <p class="muted" style="margin:8px 0 0">Teal means the columns rise together, amber means one rises as the other falls.</p>
+    </section>
+
+    <section class="panel">
+      <h2>First 10 rows</h2>
+      <div class="scroll"><table id="preview"></table></div>
+    </section>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

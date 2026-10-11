@@ -1,0 +1,11 @@
+date,region,product,units,unit_price,discount,revenue,rating
+2025-01-05,North,Laptop,2,920,0.10,1656,4.5
+2025-01-09,South,Phone,1,640,0.05,608,4.2
+2025-01-14,East,Tablet,3,410,0.00,1230,3.9
+2025-02-02,West,Monitor,4,255,0.15,867,4.1
+2025-02-11,North,Headset,10,88,0.20,704,
+2025-02-20,South,Laptop,1,890,0.00,890,4.8
+2025-03-03,East,Phone,2,660,0.10,1188,4.0
+2025-03-15,West,Tablet,1,395,0.05,375,3.7
+2025-03-27,North,Monitor,6,248,0.12,1310,4.3
+2025-04-04,South,Headset,15,92,0.18,1132,4.4

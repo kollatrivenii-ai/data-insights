@@ -1,0 +1,59 @@
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --bg: #eef2f6; --panel: #ffffff; --ink: #14213d; --muted: #5b6b82; --line: #d6dee8;
+    --accent: #0f766e; --accent-ink: #ffffff; --warn: #b7791f; --bad: #b42318;
+    --c1: #0f766e; --c2: #e09f1f; --c3: #3b6ea5; --c4: #a44a6b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1624; --panel: #16213a; --ink: #e6edf7; --muted: #94a3bb; --line: #2a3a58;
+      --accent: #2dd4bf; --accent-ink: #0e1624; --warn: #f2c15c; --bad: #ff8a80;
+      --c1: #2dd4bf; --c2: #f2c15c; --c3: #7fb2e8; --c4: #e58bb0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1624; --panel: #16213a; --ink: #e6edf7; --muted: #94a3bb; --line: #2a3a58;
+    --accent: #2dd4bf; --accent-ink: #0e1624; --warn: #f2c15c; --bad: #ff8a80;
+    --c1: #2dd4bf; --c2: #f2c15c; --c3: #7fb2e8; --c4: #e58bb0;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5; }
+  main { max-width: 1120px; margin: 0 auto; padding: 28px 18px 60px; }
+  h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin: 0 0 6px; }
+  h2 { font-size: 1.15rem; font-weight: 700; margin: 0 0 12px; }
+  p.lead { color: var(--muted); margin: 0 0 22px; max-width: 60ch; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin-bottom: 18px; }
+  .drop { border: 2px dashed var(--line); border-radius: 10px; padding: 26px; text-align: center; transition: border-color .15s, background .15s; }
+  .drop.over { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+  .drop p { margin: 0 0 14px; color: var(--muted); }
+  button, .btn { font: inherit; font-weight: 700; cursor: pointer; border-radius: 8px; padding: 9px 16px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); }
+  button.ghost, .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid var(--c2); outline-offset: 2px; }
+  .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .stat { border-left: 4px solid var(--accent); padding: 4px 12px; }
+  .stat b { display: block; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; }
+  .stat span { color: var(--muted); font-size: .85rem; }
+  ul.findings { margin: 0; padding-left: 20px; }
+  ul.findings li { margin-bottom: 6px; }
+  .scroll { overflow-x: auto; max-width: 100%; }
+  table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th { color: var(--muted); font-weight: 700; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { font-size: .75rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--line); }
+  .tag.numeric { color: var(--c1); border-color: var(--c1); }
+  .tag.category { color: var(--c4); border-color: var(--c4); }
+  .tag.date { color: var(--c3); border-color: var(--c3); }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
+  .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+  select { font: inherit; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); max-width: 100%; }
+  .chart-box { position: relative; height: 300px; }
+  .heat td { text-align: center; font-variant-numeric: tabular-nums; min-width: 56px; border: 1px solid var(--panel); }
+  .heat th { white-space: nowrap; }
+  .hidden { display: none; }
+  .err { color: var(--bad); font-weight: 700; margin-top: 10px; }
+  .muted { color: var(--muted); }
